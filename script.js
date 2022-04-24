@@ -5,6 +5,7 @@ let lose = 0
 let draw = 0
 let finalScore
 
+alert('Matches are best of five. Good luck!')
 alert(game())
 
 function tally() {
