@@ -3,7 +3,6 @@ let victory
 let win = 0
 let lose = 0
 let draw = 0
-let finalScore
 
 alert('Welcome to Rock Paper Scissors! Matches are best of five. Good luck!')
 alert(game())
@@ -19,7 +18,7 @@ function tally() {
     alert('Wins: ' + win + '. Loses: ' + lose + '. Draws: ' + draw +'.')
 }
 
-function score() {
+function finalScore() {
     if (win > lose) {
    alert('You win the match with ' + win + ' wins, ' + lose + ' losses, and ' + draw + ' draws. Congratulations!')
 } else if (win < lose) {
@@ -68,33 +67,21 @@ function singleRound(rockPaperScissors, computerSelection) {
         computerSelection = 'Error!'
     }
 
-    if (computerSelection == 'Rock!' && playerSelection == 'scissors') {
+    if (computerSelection == 'Rock!' && playerSelection == 'scissors' || computerSelection == 'Scissors!' && playerSelection == 'paper' || computerSelection == 'Paper!' && playerSelection == 'rock') {
         victory = 'You Lose!'
         alert(victory + " Computer chose: " + computerSelection)
         tally()
-    } else if (computerSelection == 'Scissors!' && playerSelection == 'paper') {
-        victory = 'You Lose!'
-        alert(victory + " Computer chose: " + computerSelection)
-        tally()
-    } else if (computerSelection == 'Paper!' && playerSelection == 'rock') {
-        victory = 'You Lose!'
-        alert(victory + " Computer chose: " + computerSelection)
-        tally()
-    } else if (computerSelection == 'Rock!' && playerSelection == 'paper') {
+    } else if (computerSelection == 'Rock!' && playerSelection == 'paper' || computerSelection == 'Scissors!' && playerSelection == 'rock' || computerSelection == 'Paper!' && playerSelection == 'scissors') {
         victory = 'You Win!'
         alert(victory + " Computer chose: " + computerSelection)
         tally()
-    } else if (computerSelection == 'Scissors!' && playerSelection == 'rock') {
-        victory = 'You Win!'
-        alert(victory + " Computer chose: " + computerSelection)
-        tally()
-    } else if (computerSelection == 'Paper!' && playerSelection == 'scissors') {
-        victory = 'You Win!'
+    } else if (computerSelection == 'Paper!' && playerSelection == 'paper' || computerSelection == 'Rock!' && playerSelection == 'rock' || computerSelection == 'Scissors!' && playerSelection == 'scissors'){
+        victory = 'Draw!'
         alert(victory + " Computer chose: " + computerSelection)
         tally()
     } else {
-        victory = 'Draw!'
-        alert(victory + " Computer chose: " + computerSelection)
+        victory = 'Draw'
+        alert('Error! Please enter a valid choice.')
         tally()
     }
 }
@@ -107,7 +94,7 @@ function game() {
             alert('Error!')
      }
     }
-     score()
+     finalScore()
      reset()
      alert('Okay! Next match coming up!')
      alert(game())
