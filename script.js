@@ -15,8 +15,9 @@ function computerPlay() {
     return computerSelection
 }
 
-function singleRound(playerSelection) {
+function singleRound(rockPaperScissors, computerSelection) {
     const rand = Math.random();
+    let playerSelection = rockPaperScissors.toLowerCase()
 
     if (rand <= .3333333333) {
         computerSelection = 'Rock!'
@@ -28,21 +29,20 @@ function singleRound(playerSelection) {
         computerSelection = 'Error!'
     }
 
-    if (computerSelection == 'Rock!' && playerSelection == 'Scissors!') {
-        victory = 'You Lose'
-    } else if (computerSelection == 'Scissors!' && playerSelection == 'Paper!') {
-        victory = 'You Lose'
-    } else if (computerSelection == 'Paper!' && playerSelection == 'Rock!') {
-        victory = 'You Lose'
-    } else if (computerSelection == 'Rock!' && playerSelection == 'Paper!') {
-        victory = 'You Win'
-    } else if (computerSelection == 'Scissors!' && playerSelection == 'Rock!') {
-        victory = 'You Win'
-    } else if (computerSelection == 'Paper!' && playerSelection == 'Scissors!') {
-        victory = 'You Win'
+    if (computerSelection == 'Rock!' && playerSelection == 'scissors') {
+        victory = 'You Lose!'
+    } else if (computerSelection == 'Scissors!' && playerSelection == 'paper') {
+        victory = 'You Lose!'
+    } else if (computerSelection == 'Paper!' && playerSelection == 'rock') {
+        victory = 'You Lose!'
+    } else if (computerSelection == 'Rock!' && playerSelection == 'paper') {
+        victory = 'You Win!'
+    } else if (computerSelection == 'Scissors!' && playerSelection == 'rock') {
+        victory = 'You Win!'
+    } else if (computerSelection == 'Paper!' && playerSelection == 'scissors') {
+        victory = 'You Win!'
     } else {
-        victory = 'Draw'
+        victory = 'Draw!'
     }
     return victory + " Computer chose: " + computerSelection
-
 }
