@@ -7,21 +7,9 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        game(button.id);
+        playRound(button.id);
       });
     });
-
-/* function playGame(choice) {
-if (choice === `rock`) {
-para.textContent = `rock`;
-} else if (choice === `paper`) {
-para.textContent = `paper`;
-} else if (choice == `scissors`) {
-para.textContent = `scissors`;
-} else {
-para.textContent = `error or no selection yet`
-}
-} */
 
 //Variables
 
@@ -40,6 +28,10 @@ function tally() {
         ++draw;
     }
     div.textContent = 'Wins: ' + win + '. Loses: ' + lose + '. Draws: ' + draw +'.'
+    if (5 == lose || 5 == win) {
+        finalScore()
+        reset()
+    }
 }
 
 function finalScore() {
@@ -61,7 +53,7 @@ function reset() {
 
 //Game Function
 
-function singleRound(playSelect, compSelect) {
+function playRound(playSelect, compSelect) {
     const rand = Math.random();
 
     if (rand <= .3333333333) {
@@ -92,17 +84,4 @@ function singleRound(playSelect, compSelect) {
     }
     para.textContent = victory + " Computer chose: " + compSelect
     tally()
-}
-
-function game(playSelect) {
-    for (let i = 0; i < 5; i++) {
-        if (i <= 5) {
-            singleRound(playSelect)
-        } else {
-            div.textContent = 'Error!'
-     }
-    }
-     finalScore()
-     reset()
-     return
 }
