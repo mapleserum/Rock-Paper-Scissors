@@ -78,9 +78,6 @@ function playRound(playSelect, compSelect) {
             compSelect == 'Rock!' && playSelect == 'rock' ||
             compSelect == 'Scissors!' && playSelect == 'scissors') {
         victory = 'Draw!';
-    } else {
-        victory = 'Draw';
-        div.textContent = 'Error! Please enter a valid choice.'
     }
     para.textContent = victory + " Computer chose: " + compSelect
     tally()
