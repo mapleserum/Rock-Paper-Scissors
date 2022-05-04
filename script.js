@@ -1,5 +1,27 @@
 //Coded by Daniel Gingras on April 24th 2022
 
+//Taken from original experiment
+const para = document.querySelector('p');
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        singleRound(button.id);
+      });
+    });
+
+/* function playGame(choice) {
+if (choice === `rock`) {
+para.textContent = `rock`;
+} else if (choice === `paper`) {
+para.textContent = `paper`;
+} else if (choice == `scissors`) {
+para.textContent = `scissors`;
+} else {
+para.textContent = `error or no selection yet`
+}
+} */
+
 //Variables
 
 let victory;
@@ -9,7 +31,7 @@ let draw = 0;
 
 //Minor Functions
 
-function tally() {
+/* function tally() {
     if (victory === 'You Lose!') {
         ++lose;
     } else if (victory === 'You Win!') {
@@ -34,57 +56,54 @@ function reset() {
     win = 0;
     lose = 0;
     draw = 0;
-}
+} */
 
 function computerPlay() {
     const rand = Math.random();
     if (rand <= .3333333333) {
-        computerSelection = 'Rock!';
+        compSelect = 'Rock!';
     } else if (rand > .3333333333 && rand <= .6666666666) {
-        computerSelection = 'Paper!';
+        compSelect = 'Paper!';
     } else if (rand > .6666666666) {
-        computerSelection = 'Scissors!';
+        compSelect = 'Scissors!';
     } else {
-        computerSelection = 'Error!';
+        compSelect = 'Error!';
     }
-    return computerSelection
+    return compSelect
 }
 
 //Game Function
 
-function singleRound(playerSelection, computerSelection) {
-    let answer = prompt('Choose Rock, Paper, or Scissors:')
-    playerSelection = answer.toLowerCase()
-
+function singleRound(playSelect, compSelect) {
     const rand = Math.random();
 
     if (rand <= .3333333333) {
-        computerSelection = 'Rock!';
+        compSelect = 'Rock!';
     } else if (rand > .3333333333 && rand <= .6666666666) {
-        computerSelection = 'Paper!';
+        compSelect = 'Paper!';
     } else if (rand > .6666666666) {
-        computerSelection = 'Scissors!';
+        compSelect = 'Scissors!';
     } else {
-        computerSelection = 'Error!';
+        compSelect = 'Error!';
     }
 
-    if (computerSelection == 'Rock!' && playerSelection == 'scissors' ||
-            computerSelection == 'Scissors!' && playerSelection == 'paper' ||
-            computerSelection == 'Paper!' && playerSelection == 'rock') {
+    if (compSelect == 'Rock!' && playSelect == 'scissors' ||
+            compSelect == 'Scissors!' && playSelect == 'paper' ||
+            compSelect == 'Paper!' && playSelect == 'rock') {
         victory = 'You Lose!';
-        alert(victory + " Computer chose: " + computerSelection)
+        alert(victory + " Computer chose: " + compSelect)
         tally()
-    } else if (computerSelection == 'Rock!' && playerSelection == 'paper' ||
-            computerSelection == 'Scissors!' && playerSelection == 'rock' ||
-            computerSelection == 'Paper!' && playerSelection == 'scissors') {
+    } else if (compSelect == 'Rock!' && playSelect == 'paper' ||
+            compSelect == 'Scissors!' && playSelect == 'rock' ||
+            compSelect == 'Paper!' && playSelect == 'scissors') {
         victory = 'You Win!';
-        alert(victory + " Computer chose: " + computerSelection)
+        alert(victory + " Computer chose: " + compSelect)
         tally()
-    } else if (computerSelection == 'Paper!' && playerSelection == 'paper' ||
-            computerSelection == 'Rock!' && playerSelection == 'rock' ||
-            computerSelection == 'Scissors!' && playerSelection == 'scissors') {
+    } else if (compSelect == 'Paper!' && playSelect == 'paper' ||
+            compSelect == 'Rock!' && playSelect == 'rock' ||
+            compSelect == 'Scissors!' && playSelect == 'scissors') {
         victory = 'Draw!';
-        alert(victory + " Computer chose: " + computerSelection)
+        alert(victory + " Computer chose: " + compSelect)
         tally()
     } else {
         victory = 'Draw';
@@ -93,7 +112,7 @@ function singleRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+/* function game() {
     for (let i = 0; i < 5; i++) {
         if (i <= 5) {
             singleRound()
@@ -105,8 +124,7 @@ function game() {
      reset()
      alert('Okay! Next match coming up!')
      alert(game())
-}
+} */
 
 //Flow
-alert('Welcome to Rock Paper Scissors! Matches are best of five. Good luck!')
 alert(game())
