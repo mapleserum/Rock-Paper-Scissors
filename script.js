@@ -1,3 +1,5 @@
+//Coded by Daniel Gingras on April 24th 2022
+
 //Variables
 
 let victory;
@@ -28,13 +30,11 @@ function finalScore() {
 }
 }
 
-
 function reset() {
     win = 0;
     lose = 0;
     draw = 0;
 }
-
 
 function computerPlay() {
     const rand = Math.random();
@@ -50,7 +50,7 @@ function computerPlay() {
     return computerSelection
 }
 
-//Game Functions
+//Game Function
 
 function singleRound(playerSelection, computerSelection) {
     let answer = prompt('Choose Rock, Paper, or Scissors:')
